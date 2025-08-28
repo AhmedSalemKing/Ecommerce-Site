@@ -1,0 +1,1294 @@
+/* ====== NAVBAR الأساسية ====== */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: clamp(8px, 2vw, 20px) clamp(16px, 4vw, 48px);
+  background-color: #fff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  position: relative;
+  z-index: 100;
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  min-height: clamp(50px, 8vh, 80px);
+  box-sizing: border-box;
+}
+
+/* ====== اللوجو والنص ====== */
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: clamp(6px, 1.5vw, 16px);
+  flex-shrink: 0;
+  min-width: fit-content;
+}
+
+.nav-logo img {
+  width: clamp(24px, 5vw, 50px);
+  height: auto;
+  max-height: 50px;
+  object-fit: contain;
+}
+
+.nav-logo p {
+  font-size: clamp(14px, 3.5vw, 28px);
+  font-weight: 700;
+  color: #d33820;
+  margin: 0;
+  white-space: nowrap;
+  line-height: 1.2;
+}
+
+/* ====== القائمة ====== */
+.nav-menu {
+  display: flex;
+  align-items: center;
+  gap: clamp(16px, 3vw, 35px);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  flex-wrap: wrap;
+  justify-content: center;
+  flex: 1;
+}
+
+.nav-menu li {
+  font-size: clamp(12px, 2.2vw, 17px);
+  font-weight: 500;
+  color: #333;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  white-space: nowrap;
+  padding: 8px 4px;
+}
+
+.nav-menu li:hover {
+  color: #d33820;
+  transform: translateY(-1px);
+}
+
+.nav-menu a {
+  color: #434343;
+  text-decoration: none;
+  font-weight: 550;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  display: block;
+  padding: 4px 8px;
+  border-radius: 6px;
+}
+
+.nav-menu a:hover {
+  color: #d33820;
+  background-color: rgba(211, 56, 32, 0.05);
+}
+
+.nav-menu hr {
+  display: none;
+}
+
+/* ====== حاوية الإجراءات (البحث + المستخدم + السلة) ====== */
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: clamp(8px, 2vw, 16px);
+  flex-shrink: 0;
+  position: relative;
+}
+
+/* ====== مربع البحث ====== */
+.search-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.search-form {
+  position: relative;
+  display: flex;
+  align-items: center;
+  background: #f8f9fa;
+  border-radius: clamp(20px, 4vw, 30px);
+  border: 2px solid transparent;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
+  height: clamp(32px, 6vw, 40px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.search-container.search-active .search-form {
+  background: #fff;
+  border-color: #d33820;
+  box-shadow: 0 4px 20px rgba(211, 56, 32, 0.15);
+  width: clamp(200px, 40vw, 300px);
+}
+
+.search-input {
+  border: none;
+  outline: none;
+  background: transparent;
+  padding: clamp(6px, 1.5vw, 8px) clamp(12px, 2.5vw, 16px);
+  font-size: clamp(12px, 2.5vw, 14px);
+  color: #333;
+  width: 0;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  font-family: inherit;
+}
+
+.search-container.search-active .search-input {
+  width: 100%;
+  padding-right: clamp(35px, 7vw, 45px);
+}
+
+.search-input::placeholder {
+  color: #999;
+  transition: color 0.3s ease;
+}
+
+.search-container.search-active .search-input::placeholder {
+  color: #666;
+}
+
+.search-toggle {
+  position: absolute;
+  right: 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: clamp(6px, 1.5vw, 8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 2;
+  width: clamp(28px, 5vw, 36px);
+  height: clamp(28px, 5vw, 36px);
+}
+
+.search-toggle:hover {
+  background: rgba(211, 56, 32, 0.1);
+  transform: scale(1.05);
+}
+
+.search-icon {
+  width: clamp(16px, 3vw, 20px);
+  height: clamp(16px, 3vw, 20px);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  object-fit: contain;
+  filter: brightness(0.6);
+}
+
+.search-container.search-active .search-icon {
+  filter: brightness(0.4);
+}
+
+.search-toggle:hover .search-icon {
+  filter: brightness(0) saturate(100%) invert(24%) sepia(65%) saturate(4968%) hue-rotate(346deg) brightness(89%) contrast(89%);
+  transform: rotate(15deg);
+}
+
+.search-clear {
+  position: absolute;
+  right: clamp(30px, 6vw, 38px);
+  background: rgba(211, 56, 32, 0.1);
+  border: none;
+  cursor: pointer;
+  padding: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  font-size: clamp(14px, 3vw, 18px);
+  color: #d33820;
+  width: clamp(20px, 4vw, 24px);
+  height: clamp(20px, 4vw, 24px);
+  opacity: 0;
+  transform: scale(0.8);
+}
+
+.search-container.search-active .search-clear {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.search-clear:hover {
+  background: rgba(211, 56, 32, 0.2);
+  transform: scale(1.1);
+}
+
+/* ====== زر الدخول والسلة ====== */
+.nav-login-cart {
+  display: flex;
+  align-items: center;
+  gap: clamp(8px, 2vw, 24px);
+  flex-shrink: 0;
+  position: relative;
+  min-width: fit-content;
+}
+
+.nav-login-cart button {
+  padding: clamp(4px, 1vw, 10px) clamp(12px, 2.5vw, 28px);
+  border: 2px solid #d33820;
+  border-radius: 30px;
+  background: none;
+  font-size: clamp(10px, 2vw, 16px);
+  font-weight: 600;
+  color: #d33820;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  white-space: nowrap;
+  min-height: clamp(28px, 5vh, 36px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav-login-cart button:hover {
+  background: #d33820;
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(211, 56, 32, 0.3);
+}
+
+.nav-login-cart button:active {
+  transform: translateY(0);
+}
+
+.nav-login-cart img {
+  width: clamp(20px, 4vw, 32px);
+  height: clamp(20px, 4vw, 32px);
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  object-fit: contain;
+}
+
+.nav-login-cart img:hover {
+  transform: scale(1.1);
+}
+
+/* ====== عدد المنتجات فوق السلة ====== */
+.nav-cart-count {
+  position: absolute;
+  top: clamp(-6px, -1vw, -8px);
+  right: clamp(-6px, -1vw, -8px);
+  background: linear-gradient(45deg, #ff4444, #cc1f1f);
+  color: white;
+  font-size: clamp(8px, 1.5vw, 13px);
+  font-weight: 700;
+  border-radius: 50%;
+  width: clamp(14px, 2.5vw, 22px);
+  height: clamp(14px, 2.5vw, 22px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #fff;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+/* ====== أنماط الحساب ====== */
+.account-container {
+  position: relative;
+  display: inline-block;
+}
+
+.account-icon {
+  width: clamp(24px, 4vw, 30px);
+  height: clamp(24px, 4vw, 30px);
+  cursor: pointer;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+.account-icon:hover {
+  transform: scale(1.1);
+  opacity: 0.8;
+}
+
+.account-dropdown {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  min-width: 150px;
+  margin-top: 5px;
+  animation: fadeIn 0.2s ease-in-out;
+}
+
+.account-dropdown ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.account-dropdown li {
+  padding: 12px 16px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  border-bottom: 1px solid #eee;
+}
+
+.account-dropdown li:last-child {
+  border-bottom: none;
+}
+
+.account-dropdown li:hover {
+  background-color: #f5f5f5;
+}
+
+.account-dropdown a {
+  text-decoration: none;
+  color: #333;
+  display: block;
+  width: 100%;
+}
+
+.account-dropdown li:hover a {
+  color: #007bff;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ====== القائمة المنسدلة والسهم ====== */
+.nav-dropdown {
+  display: none;
+  width: clamp(24px, 4vw, 35px);
+  height: clamp(24px, 4vw, 35px);
+  cursor: pointer;
+  transform: rotate(270deg);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  filter: brightness(0.7);
+  padding: clamp(2px, 0.5vw, 4px);
+  border-radius: 50%;
+}
+
+.nav-dropdown:hover {
+  background-color: rgba(211, 56, 32, 0.1);
+  filter: brightness(1);
+}
+
+.nav-dropdown.open {
+  transform: rotate(90deg);
+  filter: brightness(1);
+}
+
+.nav-menu.nav-menu-visible {
+  display: flex !important;
+  flex-direction: column;
+  background-color: #fff;
+  position: absolute;
+  top: calc(100% + 10px);
+  left: 50%;
+  transform: translateX(-50%);
+  width: calc(100vw - clamp(16px, 4vw, 32px));
+  max-width: clamp(280px, 60vw, 400px);
+  padding: clamp(12px, 3vw, 20px);
+  border-radius: clamp(8px, 2vw, 12px);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.15);
+  z-index: 99;
+  gap: clamp(8px, 2vw, 12px);
+  animation: slideDown 0.3s ease-out;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
+/* ====== الوضع الداكن ====== */
+body.dark-mode .navbar {
+  background-color: #1a1a1a;
+  box-shadow: 0 2px 8px rgba(255, 255, 255, 0.05);
+}
+
+body.dark-mode .nav-logo p {
+  color: #ff5544;
+}
+
+body.dark-mode .cart-icon {
+  filter: invert(1);
+}
+
+/* أنماط البحث في الوضع الداكن */
+body.dark-mode .search-form {
+  background: #2a2a2a;
+  border-color: transparent;
+}
+
+body.dark-mode .search-container.search-active .search-form {
+  background: #333;
+  border-color: #ff5544;
+  box-shadow: 0 4px 20px rgba(255, 85, 68, 0.2);
+}
+
+body.dark-mode .search-input {
+  color: #e0e0e0;
+}
+
+body.dark-mode .search-input::placeholder {
+  color: #888;
+}
+
+body.dark-mode .search-container.search-active .search-input::placeholder {
+  color: #bbb;
+}
+
+body.dark-mode .search-icon {
+  filter: brightness(0) invert(1);
+}
+
+body.dark-mode .search-container.search-active .search-icon {
+  filter: brightness(0) invert(0.7);
+}
+
+body.dark-mode .search-toggle:hover .search-icon {
+  filter: brightness(0) saturate(100%) invert(60%) sepia(73%) saturate(4988%) hue-rotate(346deg) brightness(104%) contrast(94%);
+}
+
+body.dark-mode .search-clear {
+  background: rgba(255, 85, 68, 0.2);
+  color: #ff5544;
+}
+
+body.dark-mode .search-clear:hover {
+  background: rgba(255, 85, 68, 0.3);
+}
+
+body.dark-mode .search-toggle:hover {
+  background: rgba(255, 85, 68, 0.1);
+}
+
+body.dark-mode .account-dropdown {
+  background: #2d2d2d;
+  border-color: #555;
+}
+
+body.dark-mode .account-dropdown li {
+  border-bottom-color: #555;
+}
+
+body.dark-mode .account-dropdown li:hover {
+  background-color: #444;
+}
+
+body.dark-mode .account-dropdown a {
+  color: #e0e0e0;
+}
+
+body.dark-mode .account-dropdown li:hover a {
+  color: #4fc3f7;
+}
+
+body.dark-mode .nav-menu.nav-menu-visible {
+  background-color: #2a2a2a;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+}
+
+body.dark-mode .nav-menu li,
+body.dark-mode .nav-menu a {
+  color: #e0e0e0 !important;
+}
+
+body.dark-mode .nav-menu a:hover {
+  color: #ff5544 !important;
+  background-color: rgba(255, 85, 68, 0.1);
+}
+
+body.dark-mode .nav-login-cart button {
+  border-color: #ff5544;
+  color: #ff5544;
+}
+
+body.dark-mode .nav-login-cart button:hover {
+  background: #ff5544;
+  color: #fff;
+}
+
+body.dark-mode .nav-dropdown {
+  filter: brightness(0) invert(1);
+}
+
+body.dark-mode .nav-dropdown:hover {
+  filter: brightness(0) invert(1);
+  background-color: rgba(255, 85, 68, 0.1);
+}
+
+/* ====== الاستجابة للشاشات الصغيرة جداً ====== */
+@media (max-width: 239px) {
+  .navbar {
+    padding: 4px 6px;
+    flex-direction: column;
+    gap: 4px;
+    min-height: 45px;
+  }
+  
+  .nav-actions {
+    gap: 4px;
+    justify-content: center;
+  }
+  
+  .search-container.search-active .search-form {
+    width: clamp(140px, 85vw, 200px);
+  }
+  
+  .search-form {
+    height: clamp(26px, 5.5vw, 30px);
+  }
+  
+  .search-toggle {
+    width: clamp(22px, 4.5vw, 26px);
+    height: clamp(22px, 4.5vw, 26px);
+  }
+  
+  .search-icon {
+    width: clamp(13px, 2.8vw, 15px);
+    height: clamp(13px, 2.8vw, 15px);
+  }
+  
+  .search-clear {
+    width: clamp(18px, 3.5vw, 20px);
+    height: clamp(18px, 3.5vw, 20px);
+    right: clamp(24px, 5.5vw, 28px);
+  }
+}
+
+/* ====== موبايل صغير: 320px - 479px ====== */
+@media (min-width: 320px) and (max-width: 479px) {
+  .navbar {
+    padding: 8px 12px;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+  }
+  
+  .nav-actions {
+    gap: 8px;
+    justify-content: center;
+    width: 100%;
+  }
+  
+  .search-container.search-active .search-form {
+    width: clamp(160px, 70vw, 240px);
+  }
+  
+  .search-form {
+    height: clamp(28px, 6vw, 32px);
+  }
+  
+  .search-toggle {
+    width: clamp(24px, 5vw, 28px);
+    height: clamp(24px, 5vw, 28px);
+  }
+  
+  .search-icon {
+    width: clamp(14px, 3vw, 16px);
+    height: clamp(14px, 3vw, 16px);
+  }
+  
+  .search-clear {
+    width: clamp(20px, 4vw, 22px);
+    height: clamp(20px, 4vw, 22px);
+    right: clamp(26px, 6vw, 30px);
+  }
+  
+  .nav-dropdown {
+    display: block;
+    width: 26px;
+    height: 26px;
+    margin: 4px 0;
+  }
+  
+  .nav-menu {
+    display: none;
+  }
+}
+
+/* ====== موبايل متوسط: 480px - 767px ====== */
+@media (min-width: 480px) and (max-width: 767px) {
+  .navbar {
+    padding: 12px 16px;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+  }
+  
+  .nav-actions {
+    gap: 12px;
+    justify-content: center;
+    width: 100%;
+  }
+  
+  .search-container.search-active .search-form {
+    width: clamp(200px, 60vw, 280px);
+  }
+  
+  .search-form {
+    height: clamp(32px, 6.5vw, 36px);
+  }
+  
+  .search-toggle {
+    width: clamp(28px, 5.5vw, 32px);
+    height: clamp(28px, 5.5vw, 32px);
+  }
+  
+  .search-icon {
+    width: clamp(16px, 3.5vw, 18px);
+    height: clamp(16px, 3.5vw, 18px);
+  }
+  
+  .search-clear {
+    width: clamp(22px, 4.5vw, 24px);
+    height: clamp(22px, 4.5vw, 24px);
+    right: clamp(30px, 6.5vw, 34px);
+  }
+  
+  .nav-dropdown {
+    display: block;
+    width: 30px;
+    height: 30px;
+    margin: 6px 0;
+  }
+  
+  .nav-menu {
+    display: none;
+  }
+}
+
+/* ====== تابلت صغير: 768px - 991px ====== */
+@media (min-width: 768px) and (max-width: 991px) {
+  .navbar {
+    padding: 14px 24px;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 70px;
+  }
+  
+  .nav-logo {
+    order: 1;
+    flex-shrink: 0;
+  }
+  
+  .nav-actions {
+    order: 3;
+    flex-shrink: 0;
+    gap: 14px;
+  }
+  
+  .search-container.search-active .search-form {
+    width: clamp(220px, 35vw, 300px);
+  }
+  
+  .search-form {
+    height: clamp(34px, 7vw, 38px);
+  }
+  
+  .search-toggle {
+    width: clamp(30px, 6vw, 34px);
+    height: clamp(30px, 6vw, 34px);
+  }
+  
+  .search-icon {
+    width: clamp(18px, 4vw, 20px);
+    height: clamp(18px, 4vw, 20px);
+  }
+  
+  .search-clear {
+    width: clamp(24px, 5vw, 26px);
+    height: clamp(24px, 5vw, 26px);
+    right: clamp(32px, 7vw, 36px);
+  }
+  
+  .nav-dropdown {
+    display: block;
+    order: 2;
+    margin: 0 16px;
+    width: 32px;
+    height: 32px;
+  }
+  
+  .nav-menu {
+    display: none;
+    order: 4;
+    position: absolute;
+    top: calc(100% + 10px);
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #fff;
+    width: calc(100vw - 48px);
+    max-width: 500px;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.15);
+    z-index: 99;
+    gap: 16px;
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .nav-menu.nav-menu-visible {
+    display: flex !important;
+  }
+}
+
+/* ====== لاب توب: 992px - 1199px ====== */
+@media (min-width: 992px) and (max-width: 1199px) {
+  .navbar {
+    padding: 16px 32px;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .nav-logo {
+    order: 1;
+    flex-shrink: 0;
+  }
+  
+  .nav-actions {
+    order: 3;
+    flex-shrink: 0;
+    gap: 16px;
+  }
+  
+  .search-container.search-active .search-form {
+    width: clamp(250px, 30vw, 320px);
+  }
+  
+  .search-form {
+    height: clamp(36px, 7.5vw, 40px);
+  }
+  
+  .search-toggle {
+    width: clamp(32px, 6.5vw, 36px);
+    height: clamp(32px, 6.5vw, 36px);
+  }
+  
+  .search-icon {
+    width: clamp(19px, 4.5vw, 21px);
+    height: clamp(19px, 4.5vw, 21px);
+  }
+  
+  .search-clear {
+    width: clamp(25px, 5.5vw, 27px);
+    height: clamp(25px, 5.5vw, 27px);
+    right: clamp(34px, 7.5vw, 38px);
+  }
+  
+  .nav-dropdown {
+    display: block;
+    order: 2;
+    margin: 0 20px;
+    width: 34px;
+    height: 34px;
+  }
+  
+  .nav-menu {
+    display: none;
+    order: 4;
+    position: absolute;
+    top: calc(100% + 10px);
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #fff;
+    width: calc(100vw - 64px);
+    max-width: 600px;
+    padding: 24px;
+    border-radius: 12px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.15);
+    z-index: 99;
+    gap: 20px;
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .nav-menu.nav-menu-visible {
+    display: flex !important;
+  }
+}
+
+/* ====== ديسكتوب: 1200px+ ====== */
+@media (min-width: 1200px) {
+  .navbar {
+    padding: 20px 40px;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .nav-dropdown {
+    display: none !important;
+  }
+  
+  .nav-menu {
+    display: flex !important;
+    position: static;
+    background: none;
+    box-shadow: none;
+    padding: 0;
+    width: auto;
+    max-width: none;
+    flex-direction: row;
+    transform: none;
+    gap: clamp(24px, 3vw, 35px);
+  }
+  
+  .nav-actions {
+    gap: clamp(16px, 2.5vw, 24px);
+  }
+  
+  .search-container.search-active .search-form {
+    width: clamp(280px, 25vw, 350px);
+  }
+  
+  .search-form {
+    height: clamp(38px, 8vw, 42px);
+  }
+  
+  .search-toggle {
+    width: clamp(34px, 7vw, 38px);
+    height: clamp(34px, 7vw, 38px);
+  }
+  
+  .search-icon {
+    width: clamp(20px, 4.5vw, 22px);
+    height: clamp(20px, 4.5vw, 22px);
+  }
+  
+  .search-clear {
+    width: clamp(26px, 5.5vw, 28px);
+    height: clamp(26px, 5.5vw, 28px);
+    right: clamp(36px, 8vw, 40px);
+  }
+  
+  .nav-menu li {
+    font-size: clamp(15px, 1.8vw, 17px) !important;
+    padding: 8px 4px;
+  }
+  
+  .nav-menu li:hover {
+    transform: translateY(-1px);
+    background: none;
+  }
+  
+  .nav-menu a {
+    font-size: inherit !important;
+    padding: 4px 8px;
+  }
+}
+
+/* ====== شاشات كبيرة جداً: 1600px+ ====== */
+@media (min-width: 1600px) {
+  .navbar {
+    padding: 25px 60px;
+    max-width: 1600px;
+  }
+  
+  .nav-menu {
+    gap: 45px;
+  }
+  
+  .nav-logo p {
+    font-size: 32px;
+  }
+  
+  .nav-menu li {
+    font-size: 18px !important;
+  }
+  
+  .nav-actions {
+    gap: 28px;
+  }
+  
+  .search-container.search-active .search-form {
+    width: 380px;
+  }
+  
+  .search-form {
+    height: 44px;
+  }
+  
+  .search-toggle {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .search-icon {
+    width: 24px;
+    height: 24px;
+  }
+  
+  .search-clear {
+    width: 30px;
+    height: 30px;
+    right: 42px;
+  }
+}
+
+/* ====== تحسينات عامة للبحث ====== */
+.search-container {
+  overflow: visible;
+}
+
+.search-form {
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.search-input:focus {
+  outline: none;
+}
+
+.search-toggle:focus,
+.search-clear:focus {
+  outline: 2px solid #d33820;
+  outline-offset: 2px;
+}
+
+/* ====== انيميشن لظهور البحث ====== */
+@keyframes searchExpand {
+  from {
+    width: clamp(28px, 5vw, 36px);
+  }
+  to {
+    width: clamp(200px, 40vw, 300px);
+  }
+}
+
+.search-container.search-active .search-form {
+  animation: searchExpand 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ====== تحسينات الأداء ====== */
+.search-container,
+.search-form,
+.search-input,
+.search-toggle,
+.search-clear {
+  will-change: transform, width, opacity;
+}
+
+/* ====== دعم اللمس للأجهزة المحمولة ====== */
+@media (hover: none) and (pointer: coarse) {
+  .search-toggle,
+  .search-clear {
+    padding: clamp(8px, 2vw, 12px);
+  }
+  
+  .search-toggle:hover,
+  .search-clear:hover {
+    transform: none;
+  }
+  
+  .search-toggle:active {
+    transform: scale(0.95);
+    background: rgba(211, 56, 32, 0.15);
+  }
+  
+  .search-clear:active {
+    transform: scale(0.95);
+  }
+}
+
+/* ====== تأثيرات متقدمة للبحث ====== */
+.search-container.search-active .search-form::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, transparent, rgba(211, 56, 32, 0.05), transparent);
+  border-radius: inherit;
+  opacity: 0;
+  animation: shimmer 2s infinite;
+  pointer-events: none;
+}
+
+@keyframes shimmer {
+  0% {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+}
+
+/* ====== تحسينات خاصة للوصولية ====== */
+.search-input:focus-visible {
+  box-shadow: 0 0 0 2px rgba(211, 56, 32, 0.3);
+  border-radius: 4px;
+}
+
+/* ====== منع تأثيرات الحركة للمستخدمين الذين يفضلون تقليلها ====== */
+@media (prefers-reduced-motion: reduce) {
+  .search-container,
+  .search-form,
+  .search-toggle,
+  .search-clear,
+  .search-icon {
+    transition: none !important;
+    animation: none !important;
+  }
+  
+  .search-container.search-active .search-form::before {
+    display: none;
+  }
+}
+
+/* ====== تحسينات خاصة للشاشات الكبيرة جداً ====== */
+@media (min-width: 2000px) {
+  .search-container.search-active .search-form {
+    width: 420px;
+  }
+  
+  .search-form {
+    height: 48px;
+  }
+  
+  .search-toggle {
+    width: 44px;
+    height: 44px;
+  }
+  
+  .search-icon {
+    width: 26px;
+    height: 26px;
+  }
+  
+  .search-clear {
+    width: 32px;
+    height: 32px;
+    right: 46px;
+  }
+}
+
+/* ====== تحسينات الظلال والعمق ====== */
+.search-container.search-active .search-form {
+  position: relative;
+  z-index: 10;
+}
+
+.search-container.search-active .search-form::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
+  height: 4px;
+  background: linear-gradient(to right, transparent, rgba(211, 56, 32, 0.1), transparent);
+  border-radius: 50%;
+  filter: blur(2px);
+  opacity: 0.7;
+}
+
+/* ====== تحسينات للنص والخط ====== */
+.search-input {
+  font-weight: 400;
+  letter-spacing: 0.3px;
+}
+
+.search-input:focus {
+  font-weight: 500;
+}
+
+/* ====== تحسينات للشاشات عالية الدقة ====== */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .search-icon {
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+  }
+}
+
+/* تحسينات لزر Dark Mode */
+.theme-selector-container {
+  position: fixed;
+  top: 50%;
+  right: 20px;
+  transform: translateY(-50%);
+  z-index: 1000;
+}
+
+/* تحسينات للشاشات الصغيرة */
+@media (max-width: 768px) {
+  .theme-selector-container {
+    right: 10px;
+    bottom: 20px;
+    top: auto;
+    transform: none;
+  }
+}
+
+/* ====== إصلاحات عامة للتوافق ====== */
+* {
+  box-sizing: border-box;
+}
+
+.navbar * {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* تحسينات الأداء */
+.navbar,
+.nav-menu,
+.nav-login-cart,
+.nav-actions {
+  will-change: transform;
+}
+
+.nav-menu.nav-menu-visible {
+  will-change: opacity, transform;
+}
+
+/* تأكد من عدم تداخل العناصر */
+.navbar {
+  contain: layout style;
+}
+
+/* دعم RTL */
+[dir="rtl"] .nav-logo {
+  flex-direction: row-reverse;
+}
+
+[dir="rtl"] .nav-menu {
+  direction: rtl;
+}
+
+[dir="rtl"] .nav-cart-count {
+  right: auto;
+  left: clamp(-6px, -1vw, -8px);
+}
+
+[dir="rtl"] .search-toggle {
+  right: auto;
+  left: 0;
+}
+
+[dir="rtl"] .search-clear {
+  right: auto;
+  left: clamp(30px, 6vw, 38px);
+}
+
+[dir="rtl"] .search-input {
+  padding-left: clamp(35px, 7vw, 45px);
+  padding-right: clamp(12px, 2.5vw, 16px);
+}
+
+/* تحسين الوصولية */
+.nav-menu a:focus,
+.nav-login-cart button:focus,
+.nav-dropdown:focus {
+  outline: 2px solid #d33820;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* منع النص من الانكسار */
+.nav-logo p,
+.nav-menu li,
+.nav-login-cart button {
+  word-break: keep-all;
+  overflow-wrap: normal;
+}
+
+/* تحسينات خاصة للشاشات الصغيرة جداً */
+@media (max-width: 320px) {
+  .navbar {
+    overflow-x: hidden;
+  }
+  
+  .nav-menu.nav-menu-visible {
+    max-height: 80vh;
+    overflow-y: auto;
+  }
+  
+  .nav-actions {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+
+/* تحسين الأداء للانيميشن */
+@media (prefers-reduced-motion: reduce) {
+  .nav-dropdown,
+  .nav-menu.nav-menu-visible,
+  .nav-login-cart button,
+  .nav-login-cart img,
+  .nav-menu li {
+    transition: none;
+    animation: none;
+  }
+  
+  .nav-cart-count {
+    animation: none;
+  }
+}container.search-active .search-form {
+    width: clamp(120px, 80vw, 180px);
+  }
+  
+  .search-form {
+    height: clamp(24px, 5vw, 28px);
+  }
+  
+  .search-toggle {
+    width: clamp(20px, 4vw, 24px);
+    height: clamp(20px, 4vw, 24px);
+  }
+  
+  .search-icon {
+    width: clamp(12px, 2.5vw, 14px);
+    height: clamp(12px, 2.5vw, 14px);
+  }
+  
+  .search-clear {
+    width: clamp(16px, 3vw, 18px);
+    height: clamp(16px, 3vw, 18px);
+    right: clamp(22px, 5vw, 26px);
+  }
+
+/* ====== الاستجابة للشاشات الصغيرة ====== */
+@media (min-width: 240px) and (max-width: 319px) {
+  .navbar {
+    padding: 6px 8px;
+    flex-direction: column;
+    gap: 6px;
+  }
+  
+  .nav-actions {
+    gap: 6px;
+    justify-content: center;
+  }
+}

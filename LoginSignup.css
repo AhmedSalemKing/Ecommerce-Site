@@ -1,0 +1,121 @@
+.loginsignup {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh !important;
+  background: linear-gradient(180deg, #ffcbc3, #e1ffea22 60%);
+  padding: 20px;
+}
+
+.loginsignup-container {
+  background: #fff;
+  padding: 40px 35px;
+  border-radius: 16px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+  width: 100%;
+  max-width: 420px;
+  text-align: center;
+  animation: fadeInUp 0.6s ease-out;
+}
+
+.loginsignup-container h1 {
+  font-family: "Montserrat", sans-serif;
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 25px;
+  color: #ff7723;
+}
+
+.loginsignup-fields {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.loginsignup-fields input {
+  padding: 12px 15px;
+  font-size: 15px;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.loginsignup-fields input:focus {
+  border-color: #2d5faa;
+  box-shadow: 0 0 8px rgba(45, 95, 170, 0.3);
+}
+
+.loginsignup button {
+  margin-top: 20px;
+  width: 100%;
+  padding: 12px;
+  background: linear-gradient(135deg, #ffa908, #d33820);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px !important;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(45, 95, 170, 0.3);
+}
+
+.loginsignup-login {
+  margin-top: 18px;
+  font-size: 14px;
+  color: #555;
+  font-family: "M";
+}
+
+.loginsignup-login span {
+  color: #f5700a;
+  font-family: "Montserrat";
+  font-weight: 600;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.loginsignup-login span:hover {
+  color: #883c1c;
+}
+
+.lofinsignup-agree {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin-top: 14px;
+  padding-left: 25px;
+  font-size: 13px;
+  color: #777;
+  text-align: left;
+}
+
+.lofinsignup-agree input {
+  margin-top: 13px;
+  margin-left: 15px;
+}
+
+/* Animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .loginsignup-container {
+    padding: 30px 20px;
+  }
+}
