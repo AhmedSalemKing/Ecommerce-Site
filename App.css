@@ -1,0 +1,545 @@
+/* ====== منع ظهور أي Scrollbar ====== */
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  max-width: 100vw;
+  box-sizing: border-box;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.touch-scroll {
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior-x: contain;
+  scroll-snap-type: x mandatory;
+}
+
+/* إخفاء Scrollbar تمامًا */
+::-webkit-scrollbar {
+  width: 0px;
+  height: 0px;
+}
+
+* {
+  box-sizing: border-box;
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+/* ====== الوضع الداكن العام ====== */
+body.dark-mode {
+  background-color: #000000;
+  color: #ffffff;
+}
+
+/* ====== تحسينات النافبار في الوضع الداكن ====== */
+body.dark-mode .navbar {
+  background-color: #000000;
+  color: #ffffff;
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.5);
+}
+
+body.dark-mode .nav-logo p {
+  color: #ffffff;
+}
+
+body.dark-mode .nav-menu li a {
+  color: #ffffff;
+}
+
+body.dark-mode .nav-menu li a:hover {
+  color: #ff6b35;
+}
+
+body.dark-mode .nav-login-cart {
+  color: #ffffff;
+}
+
+body.dark-mode .login-btn {
+  border: 2px solid #666;
+  color: #ffffff;
+  background: transparent;
+}
+
+body.dark-mode .login-btn:hover {
+  border-color: #ff6b35;
+  background: rgba(255, 107, 53, 0.1);
+}
+
+body.dark-mode .cart-icon {
+  color: #ffffff;
+}
+
+body.dark-mode .cart-icon svg path {
+  fill: #ffffff;
+}
+
+body.dark-mode .cart-count {
+  background: #ff6b35;
+  color: #ffffff;
+}
+
+/* ====== تحسينات الـ Hero Section ====== */
+body.dark-mode .hero {
+  background: linear-gradient(180deg, #000000 0%, #0a0a0a 100%);
+}
+
+body.dark-mode .hero-left h2 {
+  color: #ffffff;
+}
+
+body.dark-mode .hero-left p {
+  color: #ffffff;
+}
+
+body.dark-mode .hero-hand-icon {
+  filter: brightness(0.9);
+}
+
+body.dark-mode .hero-latest-btn {
+  background: #ff6b35;
+  color: #ffffff;
+}
+
+body.dark-mode .hero-latest-btn:hover {
+  background: #e55a2b;
+  box-shadow: 0 0 20px rgba(255, 107, 53, 0.4);
+}
+
+body.dark-mode .hero-right img {
+  filter: brightness(0.85);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+/* ====== تحسينات قسم العروض ====== */
+body.dark-mode .offers {
+  background: linear-gradient(180deg, #000000 0%, #0a0a0a 100%);
+}
+
+body.dark-mode .offers-left h1 {
+  color: #ffffff;
+}
+
+body.dark-mode .offers-left p {
+  color: #ffffff;
+}
+
+body.dark-mode .offers-button {
+  background: linear-gradient(135deg, #ff6b35, #ff8e35);
+  color: #ffffff;
+}
+
+/* ====== تحسينات قسم المنتجات الشعبية ====== */
+body.dark-mode .popular {
+  background: #000000;
+}
+
+body.dark-mode .popular h1 {
+  color: #ffffff;
+}
+
+body.dark-mode .popular hr {
+  background: linear-gradient(90deg, #ff6b35, #ff8e35);
+}
+
+body.dark-mode .popular-item {
+  background: #0a0a0a;
+  border: 1px solid #333;
+  color: #ffffff;
+}
+
+body.dark-mode .popular-item:hover {
+  box-shadow: 0 5px 20px rgba(255, 107, 53, 0.2);
+  border-color: #ff6b35;
+}
+
+/* ====== تحسينات قسم الفئات ====== */
+body.dark-mode .shop-category {
+  background: #000000;
+}
+
+body.dark-mode .shopcategory-indexSort p {
+  color: #ffffff;
+}
+
+body.dark-mode .shopcategory-indexSort p span {
+  color: #ffffff;
+}
+
+body.dark-mode .shopcategory-sort {
+  background: #0a0a0a;
+  border: 1px solid #444;
+  color: #ffffff;
+}
+
+body.dark-mode .shopcategory-products .item {
+  background: #0a0a0a;
+  border: 1px solid #333;
+  color: #ffffff;
+}
+
+body.dark-mode .shopcategory-products .item:hover {
+  border-color: #ff6b35;
+  box-shadow: 0 5px 15px rgba(255, 107, 53, 0.2);
+}
+
+/* ====== تحسينات عرض المنتج ====== */
+body.dark-mode .productdisplay {
+  background: #000000;
+}
+
+body.dark-mode .productdisplay-right h1 {
+  color: #ffffff;
+}
+
+body.dark-mode .productdisplay-right-star {
+  filter: brightness(0.8);
+}
+
+body.dark-mode .productdisplay-right-prices {
+  color: #ffffff;
+}
+
+body.dark-mode .productdisplay-right-description {
+  color: #ffffff;
+}
+
+body.dark-mode .productdisplay-right-size h1 {
+  color: #ffffff;
+}
+
+body.dark-mode .productdisplay-right-size div {
+  background: #0a0a0a;
+  border: 1px solid #444;
+  color: #ffffff;
+}
+
+body.dark-mode .productdisplay-right-size div:hover {
+  border-color: #ff6b35;
+  background: #1a1a1a;
+}
+
+body.dark-mode .productdisplay-right button {
+  background: #ff6b35;
+  color: #ffffff;
+}
+
+body.dark-mode .productdisplay-right button:hover {
+  background: #e55a2b;
+}
+
+body.dark-mode .productdisplay-right-category {
+  color: #ffffff;
+}
+
+body.dark-mode .productdisplay-right-category span {
+  color: #ffffff;
+}
+
+/* ====== تحسينات وصف المنتج ====== */
+body.dark-mode .descriptionbox {
+  background: #0a0a0a;
+  border: 1px solid #333;
+}
+
+body.dark-mode .descriptionbox-navigator {
+  border-bottom: 1px solid #333;
+}
+
+body.dark-mode .descriptionbox-nav-box {
+  background: #1a1a1a;
+  color: #ffffff;
+  border: 1px solid #444;
+}
+
+body.dark-mode .descriptionbox-nav-box.active {
+  background: linear-gradient(135deg, #ff6b35, #ff8e35);
+  color: #ffffff;
+  border-color: transparent;
+}
+
+body.dark-mode .descriptionbox-description {
+  color: #ffffff;
+  border-top: 1px solid #333;
+}
+
+/* ====== تحسينات المنتجات ذات الصلة ====== */
+body.dark-mode .relatedproducts {
+  background: #000000;
+}
+
+body.dark-mode .relatedproducts h1 {
+  color: #ffffff;
+}
+
+body.dark-mode .relatedproducts hr {
+  background: linear-gradient(90deg, #ff6b35, #ff8e35);
+}
+
+/* ====== تحسينات النشرة البريدية ====== */
+body.dark-mode .news-letter {
+  background: linear-gradient(180deg, #000000 0%, #0a0a0a 100%);
+}
+
+body.dark-mode .news-letter h1 {
+  color: #ffffff;
+}
+
+body.dark-mode .news-letter p {
+  color: #ffffff;
+}
+
+body.dark-mode .news-letter > div {
+  background: #0a0a0a;
+  border: 1px solid #444;
+}
+
+body.dark-mode .news-letter input {
+  background: transparent;
+  color: #ffffff;
+}
+
+body.dark-mode .news-letter input::placeholder {
+  color: #888;
+}
+
+body.dark-mode .news-letter > div button {
+  background: #ff6b35;
+  color: #ffffff;
+}
+
+body.dark-mode .news-letter > div button:hover {
+  background: #e55a2b;
+}
+
+/* ====== تحسينات صفحة التسجيل ====== */
+body.dark-mode .loginsignup {
+  background: linear-gradient(180deg, #000000 0%, #0a0a0a 100%);
+}
+
+body.dark-mode .loginsignup-container {
+  background: #0a0a0a;
+  border: 1px solid #333;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+body.dark-mode .loginsignup-container h1 {
+  color: #ffffff;
+}
+
+body.dark-mode .loginsignup-fields input {
+  background: #1a1a1a;
+  border: 1px solid #444;
+  color: #ffffff;
+}
+
+body.dark-mode .loginsignup-fields input::placeholder {
+  color: #888;
+}
+
+body.dark-mode .loginsignup-fields input:focus {
+  border-color: #ff6b35;
+  box-shadow: 0 0 10px rgba(255, 107, 53, 0.3);
+}
+
+body.dark-mode .loginsignup button {
+  background: #ff6b35;
+  color: #ffffff;
+}
+
+body.dark-mode .loginsignup button:hover {
+  background: #e55a2b;
+}
+
+body.dark-mode .loginsignup-login {
+  color: #ffffff;
+}
+
+body.dark-mode .loginsignup-login span {
+  color: #ff6b35;
+}
+
+body.dark-mode .loginsignup-agree {
+  color: #ffffff;
+}
+
+body.dark-mode .loginsignup-agree input {
+  accent-color: #ff6b35;
+}
+
+/* ====== تحسينات سلة التسوق ====== */
+body.dark-mode .cartitems {
+  background: #000000;
+}
+
+body.dark-mode .cartitems-format-main {
+  color: #ffffff;
+  border-bottom: 1px solid #333;
+}
+
+body.dark-mode .cartitems-format {
+  color: #ffffff;
+  border-bottom: 1px solid #333;
+}
+
+body.dark-mode .cartitems-format:hover {
+  background: #0a0a0a;
+}
+
+body.dark-mode .carticon-product-icon {
+  border: 1px solid #444;
+  background: #0a0a0a;
+}
+
+body.dark-mode .cartitems-quantity {
+  background: #1a1a1a;
+  border: 1px solid #444;
+  color: #ffffff;
+}
+
+body.dark-mode .cartitems-down {
+  background: #0a0a0a;
+  border: 1px solid #333;
+}
+
+body.dark-mode .cartitems-total h1 {
+  color: #ffffff;
+}
+
+body.dark-mode .cartitems-total-item {
+  color: #ffffff;
+  border-bottom: 1px solid #333;
+}
+
+body.dark-mode .cartitems-promocode {
+  color: #ffffff;
+}
+
+body.dark-mode .cartitems-promobox input {
+  background: #1a1a1a;
+  border: 1px solid #444;
+  color: #ffffff;
+}
+
+body.dark-mode .cartitems-promobox input::placeholder {
+  color: #888;
+}
+
+body.dark-mode .cartitems-promobox button {
+  background: #ff6b35;
+  color: #ffffff;
+}
+
+body.dark-mode .cartitems-promobox button:hover {
+  background: #e55a2b;
+}
+
+body.dark-mode .cartitems-checkout button {
+  background: #ff6b35;
+  color: #ffffff;
+}
+
+body.dark-mode .cartitems-checkout button:hover {
+  background: #e55a2b;
+}
+
+/* ====== تحسينات الفوتر ====== */
+body.dark-mode .footer {
+  background: linear-gradient(135deg, #000000 0%, #0a0a0a 100%);
+  border-top: 1px solid #333;
+  color: #ffffff;
+}
+
+body.dark-mode .footer-logo p {
+  color: #ffffff;
+}
+
+body.dark-mode .footer-links li {
+  color: #ffffff;
+}
+
+body.dark-mode .footer-links li:hover {
+  color: #ff6b35;
+}
+
+body.dark-mode .footer-icons-container {
+  background: #1a1a1a;
+  border: 1px solid #444;
+}
+
+body.dark-mode .footer-icons-container:hover {
+  background: #ff6b35;
+  border-color: transparent;
+}
+
+body.dark-mode .footer-copyright p {
+  color: #ffffff;
+}
+
+body.dark-mode .footer-copyright hr {
+  background: linear-gradient(90deg, transparent, #444, transparent);
+}
+
+/* ====== تحسينات عامة إضافية ====== */
+body.dark-mode ::selection {
+  background: #ff6b35;
+  color: #ffffff;
+}
+
+body.dark-mode :-moz-selection {
+  background: #ff6b35;
+  color: #ffffff;
+}
+
+body.dark-mode .heart {
+  color: #ff6b35;
+  animation: heartbeat 1.5s ease-in-out infinite;
+}
+
+@keyframes heartbeat {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.2); }
+}
+
+/* ====== تحسينات للوضع الداكن على الأجهزة المحمولة ====== */
+@media (max-width: 768px) {
+  body.dark-mode .nav-menu {
+    background: #0a0a0a;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+  }
+  
+  body.dark-mode .nav-menu li {
+    border-bottom: 1px solid #333;
+  }
+  
+  body.dark-mode .nav-menu li:last-child {
+    border-bottom: none;
+  }
+}
+
+/* ====== تحسينات إمكانية الوصول ====== */
+@media (prefers-reduced-motion: reduce) {
+  body.dark-mode * {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+/* ====== تحسينات للوضع الداكن عالي التباين ====== */
+@media (prefers-contrast: high) {
+  body.dark-mode {
+    background: #000000;
+    color: #ffffff;
+  }
+  
+  body.dark-mode .navbar {
+    background: #000000;
+    border-bottom: 2px solid #ffffff;
+  }
+}
+
+/* ====== إضافة قاعدة للوضع الفاتح ====== */
+body:not(.dark-mode) {
+  background-color: #ffffff;
+  color: #000000;
+}
